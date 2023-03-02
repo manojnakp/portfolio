@@ -1,0 +1,48 @@
+- name: html5
+  logo: html5.svg
+  desc: '<HTML />'
+- name: js
+  logo: js.svg
+  desc: '() => "Javascript"'
+- name: reactjs
+  logo: react.svg
+  desc: '<>{React}</>'
+- name: css
+  logo: css3.svg
+  desc: '.CSS{ }'
+- name: svelte
+  logo: svelte.svg
+  desc: '<Svelte />'
+- name: tailwind
+  logo: twcss.svg
+  desc: 'TailwindCSS'
+- name: docker
+  logo: docker.svg
+  desc: 'docker ps -a'
+- name: npm
+  logo: npm.svg
+  desc: 'npm run dev'
+- name: material
+  logo: m3.svg
+  desc: 'Material design'
+- name: mysql
+  logo: mysql.svg
+  desc: 'USE MySQL;'
+- name: python
+  logo: python.svg
+  desc: '"Python"[:2]*2'
+- name: nodejs
+  logo: node.svg
+  desc: 'await open("Node.js")'
+- name: golang
+  logo: go.svg
+  desc: 'go func(){}'
+- name: mongodb
+  logo: mongo.svg
+  desc: 'mongodb://db:27017'
+- name: git
+  logo: git.svg
+  desc: 'git status -s'
+- name: cobra
+  logo: cobra.png
+  desc: 'cmd := cobra.Command{}'

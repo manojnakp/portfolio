@@ -1,0 +1,45 @@
+- words: >
+    Code is like humor. When you have to explain it, it's bad.
+  by: Cory House
+  who: React and JavaScript specialist
+- words: >
+    Linux is only free if your time has no value.
+  by: Jamie Zawinski
+  who: programmer, blogger and impresario
+- words: >
+    Clean is better than clever
+  by: The Go Authors
+  who: at GopherCon Singapore 2019
+- words: >
+    There are 2 methods of software design: one is to make programs
+    so simple there are obviously no errors, or to make it so
+    complicated there are no obvious errors.
+  by: Tony Hoare
+  who: British Computer Scientist
+- words: >
+    Premature optimization is the root of [almost] all evil
+  by: Donald Knuth
+  who: Computer scientist, mathematician and professor
+- words: >
+    Real programmers always confuse Christmas and Halloween
+    because oct31==dec25
+  by: Andrew Rutherford
+  who: Scholar and Regius Professor
+- words: >
+    When in doubt, use brute force
+  by: Ken Thompson
+  who: Pioneer of Computer Science
+- words: >
+    All problems can be solved by another level of indirection,
+    except for the problem of too many layers of indirection
+  by: David Wheeler
+  who: Computer Scientist and Professor
+- words: >
+    Write stupid code that uses smart objects
+  by: Fred Brooks
+  who: Computer architect, Software engineer and computer scientist
+- words: >
+    Software Engineering is what happens to programming when
+    you add time and other programmers
+  by: Russ Cox
+  who: Developer at Google

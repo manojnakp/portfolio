@@ -1,5 +1,9 @@
 {{ define "main" }}
 {{ $infobox := .Params.infobox }}
+{{ $skills := .Site.Data.skills }}
+{{ $quotes := .Site.Data.quotes }}
+{{ $interests := .Site.Data.interests }}
+{{ $icons := .Site.Data.icons }}
 <!-- ======= About Section ======= -->
 <section id="about" class="about section-show">
 
@@ -42,8 +46,13 @@
 
   </div><!-- End About Me -->
 
+  {{ with $skills }}
   <!-- ======= Skills  ======= -->
   <div class="skills container">
+    {{ $n := len . }}
+    {{ $half := div $n 2 }}
+    {{ $left := first $half . }}
+    {{ $right := last $half . }}
 
     <div class="section-title">
       <h2>Skills</h2>
@@ -51,77 +60,25 @@
 
     <div class="row skills-content">
       <div class="col-lg-6">
-
-        <div class="skill-unit">
-            <img src="/logos/html5.svg" class="icon-lang" alt="" />
-            <span>&lt;HTML /&gt;</span>
-        </div>
-        <div class="skill-unit">
-            <img src="/logos/js.svg" class="icon-lang" alt="" />
-            <span>() => "Javscript"</span>
-        </div>
-        <div class="skill-unit">
-            <img src="/logos/react.svg" class="icon-lang" alt="" />
-            <span>&lt;&gt;{React}&lt;/&gt;</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/css3.svg" class="icon-lang" alt="" />
-          <span>.CSS{ }</span>
-      </div>
-        <div class="skill-unit">
-            <img src="/logos/svelte.svg" class="icon-lang" alt="" />
-            <span class="skill-unit">&lt;Svelte /&gt;</span>
-        </div>
-        <div class="skill-unit">
-          <img class="icon-lang" src="/logos/twcss.svg" alt="" />
-          <span>TailwindCSS</span>
-        </div>
-        <div class="skill-unit">
-          <img class="icon-lang" src="/logos/docker.svg" alt="" />
-          <span>docker ps -a</span>
-        </div>
-        <div class="skill-unit">
-          <img class="icon-lang" src="/logos/npm.svg" alt="" />
-          <span>npm run dev</span>
-        </div>
+        {{ range $left }}
+          <div class="skill-unit">
+            <img src="/logos/{{- .logo -}}" class="icon-lang" alt="{{- .name -}}" />
+            <span>{{ .desc }}</span>
+          </div>
+        {{ end }}
       </div>
       <div class="col-lg-6">
+        {{ range $right }}
         <div class="skill-unit">
-          <img src="/logos/m3.svg" class="icon-lang" alt="" />
-          <span>Material Design</span>
+          <img src="/logos/{{- .logo -}}" class="icon-lang" alt="{{- .name -}}" />
+          <span>{{ .desc }}</span>
         </div>
-        <div class="skill-unit">
-          <img src="/logos/mysql.svg" class="icon-lang" alt="" />
-          <span>USE MySQL;</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/python.svg" class="icon-lang" alt="" />
-          <span>"Python"[:2]*2</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/node.svg" class="icon-lang" alt="" />
-          <span>await open("Node.js")</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/go.svg" class="icon-lang" alt="" />
-          <span>go func(){}</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/mongo.svg" class="icon-lang" alt="" />
-          <span>mongodb://db:27017</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/git.svg" class="icon-lang" alt="" />
-          <span>git status -s</span>
-        </div>
-        <div class="skill-unit">
-          <img src="/logos/cobra.png" class="icon-lang" alt="" />
-          <span>cmd := cobra.Command{}</span>
-        </div>
+        {{ end }}
       </div>
     </div>
 
   </div><!-- End Skills -->
+  {{ end }}
 
   <!-- ======= Interests ======= -->
   <div class="interests container">
@@ -130,122 +87,21 @@
       <h2>Interests</h2>
     </div>
 
+    {{ $isize := len $interests }}
+    {{ $iconlist := first $isize $icons }}
+    {{ $isize := sub $isize 1 }}
+
     <div class="row">
+
+      {{ range seq 0 $isize }}
       <div class="col-lg-4 col-md-6 my-2">
         <div class="icon-box">
-          <i class="ri-store-line" style="color: #ffbb2c;"></i>
-          <h3>Single Page Applications</h3>
+          <i class="ri-{{- index $iconlist . -}}-line" style='color: {{- partial "randcolor" -}};'></i>
+          <h3>{{ index $interests . }}</h3>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-          <h3>Scalable CSS: SMACSS or BEM</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-          <h3>Utility frameworks VS Component framework</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-          <h3>API server</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-database-2-line" style="color: #47aeff;"></i>
-          <h3>Distributed applications</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-          <h3>Microservices</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-          <h3>gRPC: communication for microservices</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-          <h3>Protocol Buffers</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-anchor-line" style="color: #b2904f;"></i>
-          <h3>Virtualization: containers</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-disc-line" style="color: #b20969;"></i>
-          <h3>Continuous Integration</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-base-station-line" style="color: #ff5828;"></i>
-          <h3>Continuous Deployment</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-          <h3>CI/CD: automate build and test</h3>
-        </div>
-      </div>
-      <!-- new icons and colors needed -->
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-shape-2-line" style="color: #29cc61;"></i>
-          <h3>CI/CD: separating build and deploy</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-stackshare-line" style="color: #29cc61;"></i>
-          <h3>CI/CD and DevOps</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-projector-line" style="color: #29cc61;"></i>
-          <h3>Software Architecture and scalable applications</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-eye-line" style="color: #29cc61;"></i>
-          <h3>Kubernetes</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-scales-line" style="color: #29cc61;"></i>
-          <h3>Load balancing and reverse proxy</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-plug-line" style="color: #29cc61;"></i>
-          <h3>Event Driven Development</h3>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 my-2">
-        <div class="icon-box">
-          <i class="ri-broadcast-line" style="color: #29cc61;"></i>
-          <h3>Communication through Message broker</h3>
-        </div>
-      </div>
+      {{ end }}
+
     </div>
 
   </div><!-- End Interests -->
@@ -260,130 +116,19 @@
     <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
       <div class="swiper-wrapper">
 
+        {{ range $quotes }}
         <div class="swiper-slide">
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Code is like humor. When you have to explain it, it's bad.
+              {{ .words }}
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <h3>Cory House</h3>
-            <h4>React and JavaScript specialist</h4>
+            <h3>{{ .by }}</h3>
+            <h4>{{ .who }}</h4>
           </div>
         </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Linux is only free if your time has no value.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Jamie Zawinski</h3>
-            <h4>programmer, blogger and impresario</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Clean is better than clever
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>The Go Authors</h3>
-            <h4>at GopherCon Singapore 2019</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              There are 2 methods of software design: one is to make programs
-              so simple there are obviously no errors, or to make it so
-              complicated there are no obvious errors.
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Tony Hoare</h3>
-            <h4>British computer scientist</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Premature optimization is the root of [almost] all evil
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Donald Knuth</h3>
-            <h4>computer scientist, mathematician, and professor</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Real programmers always confuse Christmas and Halloween
-              because oct31 == dec25
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Andrew Rutherford</h3>
-            <h4>scholar and Regious Professor</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              When in doubt, use brute force
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Ken Thompson</h3>
-            <h4>Pioneer of computer science</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              All problems can be solved by another level of indirection,
-              except for the problem of too many layers of indirection
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>David Wheeler</h3>
-            <h4>computer scientist and professor</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Write stupid code that uses smart objects
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Fred Brooks</h3>
-            <h4>computer architect, software engineer, and computer scientist</h4>
-          </div>
-        </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Software Engineering is what happens to programming when
-              you add time and other programmers
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <h3>Russ Cox</h3>
-            <h4>Developer at Google</h4>
-          </div>
-        </div><!-- End testimonial item -->
+        {{ end }}
 
       </div>
       <div class="swiper-pagination"></div>

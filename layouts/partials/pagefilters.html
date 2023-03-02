@@ -1,0 +1,5 @@
+{{ $filters := slice }}
+{{ range . }}
+    {{ $filters = $filters | append .Params.filter }}
+{{ end }}
+{{ return $filters }}
