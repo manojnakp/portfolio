@@ -1,3 +1,5 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://mkpsays.in/me/'
 languageCode = 'en-us'
 title = 'Me'
+canonifyURLs = true
+disableKinds = ["taxonomy", "term", "RSS"]
