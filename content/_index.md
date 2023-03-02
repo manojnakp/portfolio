@@ -1,0 +1,4 @@
+---
+title: "Me"
+cmd: "whoami"
+---
