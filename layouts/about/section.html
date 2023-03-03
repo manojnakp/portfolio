@@ -46,39 +46,23 @@
 
   </div><!-- End About Me -->
 
-  {{ with $skills }}
   <!-- ======= Skills  ======= -->
   <div class="skills container">
-    {{ $n := len . }}
-    {{ $half := div $n 2 }}
-    {{ $left := first $half . }}
-    {{ $right := last $half . }}
 
     <div class="section-title">
       <h2>Skills</h2>
     </div>
 
     <div class="row skills-content">
-      <div class="col-lg-6">
-        {{ range $left }}
-          <div class="skill-unit">
-            <img src="/logos/{{- .logo -}}" class="icon-lang" alt="{{- .name -}}" />
-            <span>{{ .desc }}</span>
-          </div>
-        {{ end }}
-      </div>
-      <div class="col-lg-6">
-        {{ range $right }}
-        <div class="skill-unit">
+      {{ range $skills }}
+        <div class="skill-unit col-lg-6">
           <img src="/logos/{{- .logo -}}" class="icon-lang" alt="{{- .name -}}" />
           <span>{{ .desc }}</span>
         </div>
-        {{ end }}
-      </div>
+      {{ end }}
     </div>
 
   </div><!-- End Skills -->
-  {{ end }}
 
   <!-- ======= Interests ======= -->
   <div class="interests container">

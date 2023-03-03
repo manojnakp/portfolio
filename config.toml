@@ -3,3 +3,4 @@ languageCode = 'en-us'
 title = 'Me'
 canonifyURLs = true
 disableKinds = ["taxonomy", "term", "RSS"]
+fallBackOgImage = "/img/og.jpg"

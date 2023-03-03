@@ -79,7 +79,7 @@
         navbarToggle.classList.toggle('bi-x')
       }
 
-      if (this.hash == '#header') {
+      if (this.hash === '#header') {
         header.classList.remove('header-top')
         sections.forEach((item) => {
           item.classList.remove('section-show')
@@ -127,32 +127,33 @@
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+  if (window.Swiper) {
+    new Swiper('.testimonials-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
       },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
       }
-    }
-  });
-
+    });
+  }
   /**
    * Porfolio isotope and filter
    */
@@ -181,57 +182,61 @@
 
   });
 
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  if (window.GLightbox) {
+    /**
+     * Initiate portfolio lightbox
+     */
+    const portfolioLightbox = GLightbox({
+      selector: '.portfolio-lightbox'
+    });
 
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+    /**
+     * Initiate portfolio details lightbox
+     */
+    const portfolioDetailsLightbox = GLightbox({
+      selector: '.portfolio-details-lightbox',
+      width: '90%',
+      height: '90vh'
+    });
 
-  /**
-   * config links inside iframe of slides
-   */
-  portfolioDetailsLightbox.on('slide_after_load', function(data) {
-    const { slideNode } = data;
-    const iframe = slideNode.querySelector('iframe');
-    if (iframe) {
-      const doc = iframe.contentDocument;
-      const links = doc.querySelectorAll('a[href]');
-      for (const a of links) {
-        a.setAttribute('target', '_blank');
+    /**
+     * config links inside iframe of slides
+     */
+    portfolioDetailsLightbox.on('slide_after_load', function (data) {
+      const {slideNode} = data;
+      const iframe = slideNode.querySelector('iframe');
+      if (iframe) {
+        const doc = iframe.contentDocument;
+        const links = doc.querySelectorAll('a[href]');
+        for (const a of links) {
+          a.setAttribute('target', '_blank');
+        }
       }
-    }
-  });
+    });
+  }
 
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
+  if (window.Swiper) {
+    new Swiper('.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
   /**
    * Initiate Pure Counter 
    */
-  new PureCounter();
-
+  if (window.PureCounter) {
+    new PureCounter();
+  }
 })()
