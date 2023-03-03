@@ -104,6 +104,12 @@ h6 {
   color: var(--bs-cyan);
 }
 
+.prompt-error {
+  color: var(--bs-red);
+  border-bottom: 1px solid currentColor;
+  font-weight: normal;
+}
+
 #header h1 a,
 #header h1 a:hover {
   color: #fff;
