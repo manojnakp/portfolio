@@ -12,13 +12,11 @@
     <div class="container">
 
         <h1><a href="/">
-        <span class="prompt-prompt">
-          [
-          <!-- <span class="prompt-login">manojna</span> -->
-          <span class="prompt-dir">~/!</span>
-          ]
-        </span>
-            <span><span class="prompt-command">&nbsp;fetch <span class="prompt-error">url</span></span></span>
+        <span class="prompt-prompt"
+          >[<span class="prompt-dir">~</span>]</span
+        ><span
+          ><span class="prompt-command">&nbsp;fetch <span class="prompt-error">url</span></span></span
+        >
         </a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="mr-auto"><img src="/img/logo.png" alt="" class="img-fluid"></a> -->
@@ -33,6 +31,17 @@
     <section id="notfound" class="notfound section-show">
         <div class="container">
             <h3 class="errmsg">fetch: url: no such file or directory</h3>
+            <pre class="f0f">
+ ___   ___  ________  ___   ___
+|\  \ |\  \|\   __  \|\  \ |\  \
+\ \  \\_\  \ \  \|\  \ \  \\_\  \
+ \ \______  \ \  \\\  \ \______  \
+  \|_____|\  \ \  \\\  \|_____|\  \
+         \ \__\ \_______\     \ \__\
+          \|__|\|_______|      \|__|
+
+           PAGE NOT FOUND
+            </pre>
         </div>
     </section>
 </main>
@@ -44,7 +53,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const url = window.location.pathname
+        const url = window.location.pathname.replace('/me/', '~/');
         const cmd = document.querySelector('.prompt-command');
         cmd.innerHTML = cmd.innerHTML.replace("url", url);
         const errmsg = document.querySelector('.errmsg');
