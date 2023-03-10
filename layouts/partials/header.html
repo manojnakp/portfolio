@@ -5,19 +5,18 @@
     <div class="container">
 
         <h1><a href="/">
-        <span class="prompt-prompt">
-          [
-          <span class="prompt-login">manojna</span>
-          <span class="prompt-dir">{{ if $loc }}{{- printf "~/%s" $loc -}}{{ else }}~{{ end }}</span>
-          ]
-        </span>
-            <span>${{ if $cmd }}<span class="prompt-command">&nbsp;{{- $cmd -}}</span>{{ end }}</span>
+        <span class="prompt-prompt"
+          >[<span class="prompt-login"
+          >manojna</span><span class="prompt-dir"
+          >{{ if $loc }}{{- printf "~/%s" $loc -}}{{ else }}~{{ end }}</span
+          >]</span
+        ><wbr><span>${{ if $cmd }}<span class="prompt-command">&nbsp;{{- $cmd -}}</span>{{ end }}</span>
         </a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="mr-auto"><img src="/img/logo.png" alt="" class="img-fluid"></a> -->
         <h2>I'm a passionate <span>software developer</span> seeking fun in life</h2>
 
-        {{ partial "nav" . }}
+        {{ partial "nav" $loc }}
 
     </div>
 </header><!-- End Header -->

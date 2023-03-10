@@ -100,6 +100,10 @@ h6 {
   color: var(--bs-pink);
 }
 
+.prompt-login::after {
+  content: "\00A0";
+}
+
 .prompt-command {
   color: var(--bs-cyan);
 }
@@ -139,7 +143,7 @@ pre.f0f {
 #header h2 span {
   color: #fff;
   border-bottom: 2px solid #18d26e;
-  padding-bottom: 6px;
+  /*padding-bottom: 6px;*/
 }
 
 #header img {
@@ -208,7 +212,7 @@ pre.f0f {
 
 #header.header-top h1 {
   margin-right: auto;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 #header.header-top .container {
@@ -223,6 +227,11 @@ pre.f0f {
 @media (max-width: 768px) {
   #header.header-top {
     height: 60px;
+  }
+
+  i.mobile-nav-toggle {
+    right: 16px;
+    top: 16px;
   }
 
   #header.header-top h1 {
@@ -316,11 +325,14 @@ pre.f0f {
   line-height: 0;
   transition: 0.5s;
   position: fixed;
-  right: 15px;
-  top: 15px;
+  right: 26px;
+  top: 26px;
 }
 
 @media (max-width: 991px) {
+  #header.header-top h1 {
+    padding-right: 48px;
+  }
   .mobile-nav-toggle {
     display: block;
   }
